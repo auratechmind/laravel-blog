@@ -31,7 +31,7 @@
 				</p>
 			</div>
 			@endif
-			@if ($errors->any())
+	<!--		@if ($errors->any())
 			<div class='flash alert-danger'>
 				<ul class="panel-body">
 					@foreach ( $errors->all() as $error )
@@ -41,7 +41,7 @@
 					@endforeach
 				</ul>
 			</div>
-			@endif
+			@endif-->
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="panel panel-default">

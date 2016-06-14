@@ -60,24 +60,73 @@
 	$ php artisan migrate --path app/Modules/Blog/Migrations
    ```
    (Role column will be added into your users table. That will be define which user has author/admin role. You can change table name as per your requirement.)
-7. To set facebook API key open up Blog/Views/layouts/app.blade.php and
+7. Add following methods into app/User.php 
+
+   ```
+    /**
+     * user has many posts
+     * @return type
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Modules\Blog\Models\Posts', 'author_id');
+    }
+
+    /**
+     * user has many comments
+     * @return type
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Modules\Blog\Models\Comments', 'from_user');
+    }
+
+    /**
+     * Check if user can post blog
+     * @return boolean
+     */
+    public function can_post()
+    {
+        $role = $this->role;
+        if ($role == 'author' || $role == 'admin') {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Check if user is admin
+     * @return boolean
+     */
+    public function is_admin()
+    {
+        $role = $this->role;
+        if ($role == 'admin') {
+            return true;
+        }
+        return false;
+    }
+   ```
+	
+
+8. To set facebook API key open up Blog/Views/layouts/app.blade.php and
     set 
 
    ```
     appId      : 'your app id',
    ``` 
    in line number 8.
-8. To get twitter count register your domain on any APIs which providers twitter count. Open up Blog/Views/posts/show.blade.php and
+9. To get twitter count register your domain on any APIs which providers twitter count. Open up Blog/Views/posts/show.blade.php and
     set Provided path to
 
    ```
     data-via : 'Your domain path'
    ``` 	   
    in line number 187.
-9. For Routes you can add/update in Blog/routes.php
+10. For Routes you can add/update in Blog/routes.php
    (Blog module has its own routes.php so you can add/update routes here.)
 
-10. Please run `composer dump-autoload`, if you come across any Class not found exceptions and you haven’t done anything wrong
+11. Please run `composer dump-autoload`, if you come across any Class not found exceptions and you haven’t done anything wrong
 
 ## Demo
 http://plugins.auratechmind.net/laravel-blog/public/

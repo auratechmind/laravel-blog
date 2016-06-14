@@ -128,6 +128,9 @@
 
 11. Please run `composer dump-autoload`, if you come across any Class not found exceptions and you haven’t done anything wrong
 
+#### Note:
+This module is tested in fresh copy of laravel 5. If you have customised your application then please change as per your application.
+
 ## Demo
 http://plugins.auratechmind.net/laravel-blog/public/
 

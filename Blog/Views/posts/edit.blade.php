@@ -47,17 +47,17 @@ Edit Post
             preventDuplicates: true,
             tokenValue: 'name',
             onResult: function(item) {
-//            $.each(results, function (index, value) {
-//                value.name = value.name;
-//            });
-//
-//            return results;
+				each(item, function (index, value) {
+							value.name = value.name;
+				});
 
-                if ($.isEmptyObject(item)) {
+				return item;
+
+                /*if ($.isEmptyObject(item)) {
                     return [{id: '0', name: $("tester").text()}]
                 } else {
                     return item;
-                }
+                }*/
             }
         });
     });

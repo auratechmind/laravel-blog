@@ -79,12 +79,16 @@ tinymce.init({
         preventDuplicates: true,
         tokenValue: 'name',
         onResult: function (item) {
+			$.each(item, function (index, value) {
+                value.name = value.name;
+            });
+            return item;
 
-            if ($.isEmptyObject(item)) {
+            /*if ($.isEmptyObject(item)) {
                 return [{id: '0', name: $("tester").text()}]
             } else {
                 return item;
-            }
+            }*/
         },
     });
 });

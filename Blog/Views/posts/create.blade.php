@@ -16,10 +16,6 @@ Add New Post
 </style>
 @section('content')
 
-<!--<script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/jquery.tokeninput.js') }}"></script>-->
-<!--<link href="{{ asset('/css/token-input.css') }}" rel="stylesheet">
-<link href="{{ asset('/css/token-input-facebook.css') }}" rel="stylesheet">-->
 <script type="text/javascript" src="{{ asset('../app/Modules/Blog/Assets/js/tinymce/tinymce.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('../app/Modules/Blog/Assets/js/jquery.tokeninput.js') }}"></script>
 
@@ -30,11 +26,7 @@ Add New Post
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<div class="form-group">
             Title : <input value="{{ old('title') }}" placeholder="Enter title here" type="text" id="title" name = "title" class="form-control" />
-                <p style="color: red">{{ $errors->first('title')}}
-
-            
-
-                </p>
+                <p style="color: red">{{ $errors->first('title')}}p>
         </div>
 
         <div class="form-group">
@@ -44,7 +36,6 @@ Add New Post
 
         <div class="form-group">
             Tag:       <input type="text" name="post_tag" class="form-control">
-            
         </div>
         
 	<div class="form-group">
@@ -100,44 +91,34 @@ tinymce.init({
                 return item;
             }
         },
-//        onAdd: function (item) {
-//            alert("Added " + item.name);
-//        },
     });
 });
 
 $("#pic").change(function() {
- //salert("ok");
     var val = $(this).val();
 
     switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
         case 'jpg': case 'png':
-            //alert("an image");
             break;
         default:
             $(this).val('');
-            // error message here
             alert("plese upload png or jpg file only!!!");
             break;
     }
 }); 
 
 $("#video").change(function() {
- //salert("ok");
     var val = $(this).val();
 
     switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
         case 'avi': case '3gp': case 'mp4':
-            //alert("an image");
             break;
         default:
             $(this).val('');
-            // error message here
             alert("plese upload avi,3gp or mp4 file only!!!");
             break;
     }
 });
-
 
 $("#otherfile").change(function() {
 
@@ -145,11 +126,9 @@ $("#otherfile").change(function() {
 
     switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
         case 'xls': case 'pdf': case 'doc':
-            //alert("an image");
             break;
         default:
             $(this).val('');
-            // error message here
             alert("plese upload xls,pdf or doc files only!!!");
             break;
     }

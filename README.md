@@ -79,3 +79,14 @@
 
 10. Please run `composer dump-autoload`, if you come across any Class not found exceptions and you haven’t done anything wrong
 
+## Demo
+http://plugins.auratechmind.net/laravel-blog/public/
+
+## Discussion
+http://auratechmind.net/question/category/laravel-blog/
+
+## Credit
+https://opensharecount.com/
+https://developers.facebook.com/
+http://www.findalltogether.com/tutorial/simple-blog-application-in-laravel-5/
+

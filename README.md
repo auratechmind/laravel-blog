@@ -77,4 +77,5 @@
 9. For Routes you can add/update in Blog/routes.php
    (Blog module has its own routes.php so you can add/update routes here.)
 
-10. Please run `composer autoload` if you get any error
+10. Please run `composer autoload`, if you come across any Class not found exceptions and you haven’t done anything wrong
+

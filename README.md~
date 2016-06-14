@@ -67,7 +67,7 @@
     appId      : 'your app id',
    ``` 
    in line number 8.
-8. To get twitter count register your domain on any API which providers twitter count. Open up Blog/Views/posts/show.blade.php and
+8. To get twitter count register your domain on any APIs which providers twitter count. Open up Blog/Views/posts/show.blade.php and
     set Provided path to
 
    ```

@@ -79,11 +79,6 @@ tinymce.init({
         preventDuplicates: true,
         tokenValue: 'name',
         onResult: function (item) {
-//            $.each(results, function (index, value) {
-//                value.name = value.name;
-//            });
-//
-//            return results;
 
             if ($.isEmptyObject(item)) {
                 return [{id: '0', name: $("tester").text()}]

@@ -132,8 +132,7 @@ class Posts extends Model
      */
     public static function deleteMedia($mediaremoved)
     {
-
-        $arrayofmediaid = explode(",", $mediaremoved);
+		$arrayofmediaid = explode(",", $mediaremoved);
 
         foreach ($arrayofmediaid as $id) {
             if (!empty($id)) {

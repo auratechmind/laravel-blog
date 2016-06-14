@@ -98,8 +98,7 @@ class CommentController extends Controller
      */
     public function dlt($id)
     {
-
-        $comment     = comments::find($id);
+		$comment     = comments::find($id);
         $postid      = $comment->on_post;
         $slug        = posts::find($postid);
         $slugcontent = $slug->slug;

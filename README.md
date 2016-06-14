@@ -60,18 +60,18 @@
 	$ php artisan migrate --path app/Modules/Blog/Migrations
    ```
    (Role column will be added into your users table. That will be define which user has author/admin role. You can change table name as per your requirement.)
-7. To set Facebook API key open up Blog/Views/layouts/app.blade.php and
+7. To set facebook API key open up Blog/Views/layouts/app.blade.php and
     set 
 
    ```
     appId      : 'your app id',
    ``` 
    in line number 8.
-8. To set Twitter key open up Blog/Views/posts/show.blade.php and
-    set 
+8. To get twitter count register your domain on any APIs which providers twitter count. Open up Blog/Views/posts/show.blade.php and
+    set Provided path to
 
    ```
-    data-via : 'Your twitter id'
+    data-via : 'Your domain path'
    ``` 	   
    in line number 187.
 9. For Routes you can add/update in Blog/routes.php

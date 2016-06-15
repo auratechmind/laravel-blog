@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Input;
+use File;
 
 class PostController extends Controller
 {
@@ -178,6 +179,12 @@ class PostController extends Controller
             }
 
             if ($post->save()) {
+				$p= base_path().'/app/Modules/Blog/myupload';
+				if (!is_dir($p)){
+					mkdir($p);
+					chmod($p, 0777);
+				}
+				
                 $path = base_path().'/app/Modules/Blog/myupload/'.$post->id;
 
                 if (!is_dir($path)) {
@@ -342,6 +349,11 @@ class PostController extends Controller
                 if ($post->save()) {
                     $mediaremoved = $request->input('mediaremoved');
                     $deleteStr    = Posts::deleteMedia($mediaremoved);
+                    $p= base_path().'/app/Modules/Blog/myupload';
+					if (!is_dir($p)){
+						mkdir($p);
+						chmod($p, 0777);
+					}
                     $path         = base_path().'/app/Modules/Blog/myupload/'.$post->id;
                     if (!is_dir($path)) {
                         mkdir($path);
@@ -379,6 +391,10 @@ class PostController extends Controller
     {
 		$post = Posts::find($id);
         if ($post && ($post->author_id == $request->user()->id || $request->user()->is_admin())) {
+			$files = DB::table('post_uploads')->where('post_id', '=', $post->id)->get();
+			foreach($files as $file){
+				File::delete('../app/Modules/Blog/myupload/'.$post->id."/".$file->media_name);
+			}
             $post->delete();
             $data['message'] = 'Post deleted Successfully';
         } else {
